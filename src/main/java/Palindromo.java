@@ -3,8 +3,15 @@ import java.util.Scanner;
 public class Palindromo {
     private final static Scanner scanner = new Scanner(System.in);
 
-    public static void main (String [] args) {
-        llamarFunciones();
+    public static void main(String[] args) {
+        String palabraIngresada;
+
+        do {
+            palabraIngresada = pedirInput();
+        } while (!verificarInput(palabraIngresada));
+
+        boolean resultadoPalindromo = esPalindromo(palabraIngresada);
+        imprimirResultados(resultadoPalindromo, palabraIngresada);
     }
 
     public static String pedirInput() {
@@ -12,47 +19,26 @@ public class Palindromo {
         return scanner.nextLine();
     }
 
-    public static boolean verificarInput (String palabraIngresada, boolean inputCorrecto) {
-        for(int i = 0; i < palabraIngresada.length(); i++) {
-            if(Character.isDigit(palabraIngresada.charAt(i))) {
-                inputCorrecto = false;
+    public static boolean verificarInput(String palabraIngresada) {
+        for (int i = 0; i < palabraIngresada.length(); i++) {
+            if (Character.isDigit(palabraIngresada.charAt(i))) {
+                return false;
             }
         }
-        return inputCorrecto;
+        return true;
     }
 
     public static boolean esPalindromo(String palabraIngresada) {
-        boolean resultadoPalindromo = true;
         palabraIngresada = palabraIngresada.replace(" ", "");
 
         StringBuilder stringBuilder = new StringBuilder(palabraIngresada);
-        String palabraInvertida= stringBuilder.reverse().toString();
-        if(!palabraIngresada.equalsIgnoreCase(palabraInvertida)) {
-            resultadoPalindromo = false;
-        }
-        return resultadoPalindromo;
+        String palabraInvertida = stringBuilder.reverse().toString();
+
+        return palabraIngresada.equalsIgnoreCase(palabraInvertida);
     }
 
     public static void imprimirResultados(boolean resultadoPalindromo, String palabraIngresada) {
-        if(resultadoPalindromo) {
-            System.out.println("La palabra " + palabraIngresada + " es un palíndromo.");
-        }else {
-            System.out.println("La palabra " + palabraIngresada + " no es un palíndromo.");
-        }
-    }
-
-    public static void llamarFunciones() {
-        boolean inputCorrecto;
-        String palabraIngresada;
-
-        do {
-            inputCorrecto = true;
-            palabraIngresada = pedirInput();
-            inputCorrecto = verificarInput(palabraIngresada, inputCorrecto);
-        } while (!inputCorrecto);
-
-        boolean resultadoPalindromo = esPalindromo(palabraIngresada);
-        imprimirResultados(resultadoPalindromo, palabraIngresada);
-
+        String no = resultadoPalindromo ? "" : " no";
+        System.out.println("La palabra \"" + palabraIngresada + "\"" + no + " es un palíndromo.");
     }
 }
