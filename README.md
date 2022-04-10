@@ -1,4 +1,28 @@
 # palindromo
+paso 2:
+2.1: 
+el metodo recive un String, luego asigna una variable local, luego igualara esta variable al String recibido pero invertido
+luego de eso compara el variable con el String y si son     iguales retorna un true y si no un false.
+
+paso 3:
+3.2 casos de prueba implementar: 
+1-una palabra que sea palindromo: 
+
+2- Palabra con números: 
+
+3- Palabras con mayúsculas entre medio
+
+4- Palabras que sabemos que no son palindromos
+
+5- Espacio en blanco
+
+3.4: los resultados obtenidos son
+aca: true
+
+acas :false
+
+h: true
+
 Paso 4.1
 
 En el caso 1 debería dar false
