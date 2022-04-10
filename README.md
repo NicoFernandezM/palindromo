@@ -1,13 +1,20 @@
 # palindromo
 paso 1:
+
 1.1
+
 ¿Qué hace el método?
+
 Devuelve True o False dependiendo si la palabra ingresada es un palíndromo.
+
 ¿Cómo lo hace?
+
 Lee la cadena la separa por letra con el método split() creando una matriz, luego con el método reverse() invierte la matriz y con el método join() crea y devuelve una
 nueva cadena concatenando todos los elementos de la matriz.
 Devolviendo al final True o False en donde compara la cadena ingresada con la cadena final.
+
 ¿Cómo lo uso?
+
 Se usa ingresando palabras que son un palíndromo.
 Ojo que solo admite palabras que son palíndromos ósea que no admite frases, porque no borra los espacios y si la frase que podría ser un palíndromo tiene la primera
 palabra mas larga que la segunda nos devolverá un False.
