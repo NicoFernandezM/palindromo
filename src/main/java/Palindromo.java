@@ -8,7 +8,7 @@ public class Palindromo {
 
         do {
             palabraIngresada = pedirInput();
-        } while (!verificarInput(palabraIngresada));
+        } while (!verificarInput(palabraIngresada) || palabraIngresada.equals(""));
 
         boolean resultadoPalindromo = esPalindromo(palabraIngresada);
         imprimirResultados(resultadoPalindromo, palabraIngresada);
@@ -21,7 +21,7 @@ public class Palindromo {
 
     public static boolean verificarInput(String palabraIngresada) {
         for (int i = 0; i < palabraIngresada.length(); i++) {
-            if (Character.isDigit(palabraIngresada.charAt(i))) {
+            if (Character.isDigit(palabraIngresada.charAt(i)) || palabraIngresada.isBlank()) {
                 return false;
             }
         }
